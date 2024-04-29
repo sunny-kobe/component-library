@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="user_wrap"
+      data-key="footData"
+      data-type="pc"
+    />
+      <!-- data-tongji="onepiece202402guanwang" -->
+
+    <script src="./footer.js"></script>
+    <script>
+      window.ZYFooter.init("user_wrap");
+    </script>
+  </body>
+
+  <style>
+    .LT-footer {
+      overflow: hidden;
+      padding: 40px 0;
+      min-width: 1200px;
+      font-size: 0;
+    }
+    .LT-footer .f-wrap {
+      margin: 0 auto;
+      width: 1000px;
+    }
+    .LT-footer .f-a {
+      font-family: "\5FAE\8F6F\96C5\9ED1", tahoma, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: normal;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .LT-footer .f-a[href] {
+      cursor: pointer;
+    }
+    .LT-footer .f-p,
+    .LT-footer .f-rich-text {
+      margin: 0;
+      line-height: 2.2;
+    }
+    .LT-footer .f-rich-text {
+      font-size: 13px;
+    }
+    .LT-footer .f-top {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-box-align: end;
+      -webkit-box-pack: justify;
+      -ms-flex-align: end;
+      -ms-flex-pack: justify;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+    }
+    .LT-footer .f-top + .f-center:before {
+      display: block;
+      margin: 18px 0 16px;
+      height: 1px;
+      content: "";
+    }
+    .LT-footer .f-top .f-t-l {
+      white-space: nowrap;
+    }
+    .LT-footer .f-top .f-t-l .f-item,
+    .LT-footer .f-top .f-t-l .f-line {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .LT-footer .f-top .f-t-l .f-line {
+      margin: 0 16px;
+      width: 1px;
+      height: 40px;
+    }
+    .LT-footer .f-top .f-t-r {
+      margin-top: 10px;
+    }
+    .LT-footer .f-top .f-t-r .f-a {
+      text-decoration: underline;
+    }
+    .LT-footer .f-top .f-t-r .f-a + .f-a {
+      margin-left: 16px;
+    }
+    .LT-footer .f-center .f-list {
+      overflow: hidden;
+    }
+    .LT-footer .f-center .f-list .f-a {
+      display: inline-block;
+      position: relative;
+      margin-right: 25px;
+      vertical-align: middle;
+    }
+    .LT-footer .f-center .f-list .f-a:before {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: -13px;
+      width: 1px;
+      height: 18px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      content: "";
+    }
+    .LT-footer .f-center .f-list .f-a:first-child:before {
+      display: none;
+    }
+    .LT-footer .f-center .f-list .f-a:last-child {
+      margin-right: 0;
+    }
+    .LT-footer .f-bottom .f-p:last-child {
+      line-height: 2.5;
+    }
+    .LT-footer .f-bottom .f-a + .f-a {
+      margin-left: 5px;
+    }
+    .LT-footer .f-bottom .f-a-img {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .LT-footer .f-bottom .f-a-img + .f-a-img {
+      margin-left: 12px;
+    }
+    .LT-footer .f-bottom .f-a-img:hover {
+      text-decoration: none;
+    }
+    .LT-footer .f-bottom .f-a-img img {
+      display: inline-block;
+      width: auto;
+      height: 20px;
+      vertical-align: middle;
+    }
+    .LT-footer .f-bottom .f-a-img i {
+      margin-left: 4px;
+      font-size: 13px;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    .LT-footer.dark {
+      background-color: #000;
+    }
+    .LT-footer.dark .f-a {
+      color: #fff;
+    }
+    .LT-footer.dark .f-a:before {
+      background-color: #a1a1a1;
+    }
+    .LT-footer.dark .f-a[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.dark .f-rich-text {
+      color: #fff;
+    }
+    .LT-footer.dark .f-rich-text a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .LT-footer.dark .f-rich-text a[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.dark .f-top .f-t-l .f-line {
+      background-color: rgba(66, 78, 102, 0.6);
+    }
+    .LT-footer.dark .f-top .f-t-r .f-a {
+      color: #0089bc;
+    }
+    .LT-footer.dark .f-top .f-t-r .f-a[href]:hover {
+      color: #09ade8;
+    }
+    .LT-footer.dark .f-top + .f-center:before {
+      background-color: rgba(83, 97, 128, 0.9);
+    }
+    .LT-footer.dark .f-bottom .f-a-img {
+      color: #fff;
+    }
+    .LT-footer.dark .f-bottom .f-a-img[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.light {
+      background-color: #fff;
+    }
+    .LT-footer.light .f-a {
+      color: #100f0f;
+    }
+    .LT-footer.light .f-a:before {
+      background-color: #a1a1a1;
+    }
+    .LT-footer.light .f-a[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.light .f-rich-text {
+      color: #100f0f;
+    }
+    .LT-footer.light .f-rich-text a {
+      text-decoration: none;
+      color: #100f0f;
+    }
+    .LT-footer.light .f-rich-text a[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.light .f-top .f-t-l .f-line {
+      background-color: #e3e3e3;
+    }
+    .LT-footer.light .f-top .f-t-r .f-a {
+      color: #0089bc;
+    }
+    .LT-footer.light .f-top .f-t-r .f-a[href]:hover {
+      color: #00a8e5;
+    }
+    .LT-footer.light .f-top + .f-center:before {
+      background-color: #cecece;
+    }
+    .LT-footer.light .f-bottom .f-a-img {
+      color: #100f0f;
+    }
+    .LT-footer.light .f-bottom .f-a-img[href]:hover {
+      color: #0089bc;
+    }
+    .LT-footer.f-mobile {
+      padding: 15px;
+      min-width: 0;
+    }
+    .LT-footer.f-mobile .f-wrap {
+      width: auto;
+    }
+    .LT-footer.f-mobile .f-p {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      line-height: 2;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+    .LT-footer.f-mobile .f-p.f-nav .f-a {
+      text-decoration: underline;
+    }
+    .LT-footer.f-mobile .f-p .f-a {
+      font-size: 10px;
+    }
+    .LT-footer.f-mobile .f-p .f-a + .f-a {
+      margin-left: 5px;
+    }
+    .LT-footer.f-mobile .f-p .f-a-img {
+      display: inline-block;
+      font-size: 10px;
+      text-decoration: none;
+    }
+    .LT-footer.f-mobile .f-p .f-a-img + .f-a-img {
+      margin-left: 12px;
+    }
+    .LT-footer.f-mobile .f-p .f-a-img img {
+      display: inline-block;
+      width: auto;
+      height: 20px;
+      vertical-align: middle;
+    }
+    .LT-footer.f-mobile .f-p .f-a-img i {
+      font-style: normal;
+      vertical-align: middle;
+    }
+    .LT-footer.f-mobile .f-rich-text {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-size: 10px;
+      line-height: 2;
+      text-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+    .LT-footer.f-mobile.dark {
+      background-color: #202020;
+    }
+    .LT-footer.f-mobile.dark .f-p .f-a,
+    .LT-footer.f-mobile.dark .f-p .f-a-img,
+    .LT-footer.f-mobile.dark .f-rich-text,
+    .LT-footer.f-mobile.dark .f-rich-text a {
+      color: #c6c6c6;
+    }
+    .LT-footer.f-mobile.light {
+      background-color: #fff;
+    }
+    .LT-footer.f-mobile.light .f-p .f-a,
+    .LT-footer.f-mobile.light .f-p .f-a-img,
+    .LT-footer.f-mobile.light .f-rich-text,
+    .LT-footer.f-mobile.light .f-rich-text a {
+      color: #c9c9c9;
+    }
+    .LT-age {
+      position: absolute;
+      z-index: 1;
+    }
+    .LT-age img {
+      max-width: 200px;
+    }
+  </style>
+</html>
