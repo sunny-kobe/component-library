@@ -7,11 +7,9 @@ var ZYFooter = {
         wrapId: 'ZY_footer', // 容器Id
         source: '', // 数据源
         device: '', // pc/mobile
-        ageData: []
     },
     setHtmlForPC: function (data) {
         // 渲染pc结构
-
         // 版块一：f-top
         let topTpl = '';
         // f-t-l
@@ -240,8 +238,6 @@ var ZYFooter = {
             e.onload = function () {
                 ZYFooter.data.copyrightData = _footerData;
                 ZYFooter.setFooter();
-                ZYFooter.data.ageData = _ageData || [];
-                ZYFooter.setAge();
             };
             e.onerror = function () {
                 console.warn("配置的key值有误，获取版号信息错误。");
@@ -249,8 +245,6 @@ var ZYFooter = {
         } else {
             ZYFooter.data.copyrightData = _footerData;
             ZYFooter.setFooter();
-            ZYFooter.data.ageData = _ageData || [];
-            ZYFooter.setAge();
         }
     },
     deleteHttpOrHttps: function (src) {
@@ -278,99 +272,6 @@ var ZYFooter = {
             return 'pc';
         }
     },
-    setAge: function () {
-        // 筛选年龄标识数据
-        let data = this.data.ageData;
-        if (data.length === 0) {
-            return false;
-        }
-        let currentUrl = this.manageAgeSrc(window.location.host + window.location.pathname);
-        for (let i = 0; i < data.length; i++) {
-            let el = data[i];
-            let url = this.manageAgeSrc(el.url);
-            if (currentUrl === url || currentUrl === 'test' + url) {
-                this.setAgeHtml(data[i]);
-                break;
-            }
-        }
-    },
-    manageAgeSrc: function (src) {
-        // 处理age配置地址
-        let head = new RegExp(/^(https?:\/\/)|(\/\/)/);
-        let footer = new RegExp(/\/$/);
-        let s = src.replace(head, '').replace(footer, '');
-        return s;
-    },
-    setAgeHtml: function (data) {
-        // 渲染年龄标识dom
-        let device = this.pcOrMobile();
-        let tpl = '';
-        let wrapStyle = '';
-        let imgW = ''; // 标识宽度
-        let tOrB = parseInt(data[device].y) >= 0 ? 'top' : 'bottom'; // 上下定位
-        let lOrR = parseInt(data[device].x) >= 0 ? 'left' : 'right'; // 左右定位
-        let unit = ''; // 单位
-        let multiple = 1; // 倍数
-        if (typeof (LTRem) !== 'undefined') {
-            // 兼容rem布局
-            unit = 'rem';
-            multiple = 100;
-        } else {
-            unit = 'px';
-            if (device === 'mobile') {
-                // 移动端
-                multiple = 2;
-            } else {
-                // pc端
-                multiple = 1;
-            }
-        }
-
-        wrapStyle = tOrB + ':' + Math.abs(parseInt(data[device].y) / multiple) + unit + ';' +
-            lOrR + ':' + Math.abs(parseInt(data[device].x) / multiple) + unit + ';'
-        imgW = Math.abs(parseInt(data[device].width) / multiple) + unit + ';'
-
-        let wrap = document.createElement('div');
-        wrap.setAttribute('id', 'LT_age');
-        wrap.setAttribute('class', 'ZY-age');
-        wrap.setAttribute('style', wrapStyle);
-        if (data[device].href !== '') {
-            tpl = "<a href='" + data[device].href + "' target='_blank'>\
-                <img src='" + data[device].img + "' style='width:" + imgW + "'>\
-            </a>";
-        } else {
-            tpl = "<a>\
-                <img src='" + data[device].img + "' style='width:" + imgW + "'>\
-            </a>";
-        }
-
-        if (document.getElementById('LT_age') === null) {
-            // 避免重复调用插入dom
-            if (data[device].wrap !== '' && document.querySelectorAll(data[device].wrap).length > 0) {
-                // 优先级1：显示在配置的dom位置
-                let ancestorWrap = document.querySelectorAll(data[device].wrap)[0];
-                let position = window.getComputedStyle(ancestorWrap).getPropertyValue('position');
-                if (position === 'static') {
-                    ancestorWrap.style.position = 'relative';
-                }
-                document.querySelectorAll(data[device].wrap)[0].appendChild(wrap);
-            } else if (document.querySelectorAll("[data-lt-age='true']").length > 0) {
-                // 优先级2：显示在data-lt-age='true'的dom位置
-                let ancestorWrap = document.querySelectorAll("[data-lt-age='true']")[0];
-                let position = window.getComputedStyle(ancestorWrap).getPropertyValue('position');
-                if (position === 'static') {
-                    ancestorWrap.style.position = 'relative';
-                }
-                document.querySelectorAll("[data-lt-age='true']")[0].appendChild(wrap);
-            } else {
-                // 优先级3：默认根据body来定位
-                document.body.appendChild(wrap);
-            }
-        }
-
-        document.getElementById('LT_age').innerHTML = tpl;
-        return tpl;
-    },
     init: function (id) {
         // 初始化
         let ID = id || 'ZY_footer';
@@ -394,5 +295,3 @@ var ZYFooter = {
         ZYFooter.getData(this.data.key, this.data.tongji);
     }
 };
-
-ZYFooter.init();
