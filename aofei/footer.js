@@ -6,6 +6,7 @@ var ZYFooter = {
         style: 'dark', // 风格['dark','light']
         wrapId: 'ZY_footer', // 容器Id
         source: '', // 数据源
+        path: '', // 数据路径
         device: '', // pc/mobile
     },
     setHtmlForPC: function (data) {
@@ -218,7 +219,8 @@ var ZYFooter = {
     },
     getData: function (key, tongji) {
         let e = document.createElement("script");
-        let src = this.data.source + "/video/xhx/" + key + ".js";
+        // let src = this.data.source + "/video/commonFooter/" + key + ".js";
+        let src = this.data.source + this.data.path + key + ".js";
         if (tongji) {
             src += '?tj=' + tongji;
         }
@@ -285,6 +287,7 @@ var ZYFooter = {
         this.data.style = document.getElementById(ID).getAttribute('data-color') || 'dark';
         this.data.key = document.getElementById(ID).getAttribute('data-key') || '';
         this.data.source = document.getElementById(ID).getAttribute('data-source') || '//resource.15166.com';
+        this.data.path = document.getElementById(ID).getAttribute('data-path') || '/video/commonFooter/';
         this.data.tongji = document.getElementById(ID).getAttribute('data-tongji') || '';
         this.data.device = document.getElementById(ID).getAttribute('data-type') || '';
 

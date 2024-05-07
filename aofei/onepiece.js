@@ -9,11 +9,13 @@ var _footerData = {
     }],
     "nav": [{
         "txt": "奥飞游戏平台",
-        "href": "https:\/\/www.15166.com\/",
+        // "href": "https:\/\/www.15166.com\/",
+        "href": "https://www.15166.com/",
         "mobileNeedShow": "1"
     }, {
         "txt": "隐私政策",
-        "href": "https:\/\/www.15166.com\/privacy-policy2.html",
+        // "href": "https:\/\/www.15166.com\/privacy-policy2.html",
+        "href": "https://www.15166.com/privacy-policy2.html",
         "mobileNeedShow": "1"
     }, {
         "txt": "服务条款",
