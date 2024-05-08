@@ -78,7 +78,7 @@ var ZYFooter = {
         // 版块三：f-bottom
         let bottomTpl = '';
         // f-b-l
-        let bottomL = "<a class='f-a'>Copyright© " + data.copyright + "-" + new Date().getFullYear() + "</a>";
+        let bottomL = "<a class='f-a'>Copyright© " + "</a>";
         if (data.hasOwnProperty('logo')) {
             for (let i = 0; i < data.logo.length; i++) {
                 let item = data.logo[i];
@@ -152,7 +152,7 @@ var ZYFooter = {
             }
         }
 
-        let copyright = "<a class='f-a'>Copyright© " + data.copyright + "-" + new Date().getFullYear() + "</a>";
+        let copyright = "<a class='f-a'>Copyright© " + "</a>";
         if (data.hasOwnProperty('logo')) {
             for (let i = 0; i < data.logo.length; i++) {
                 let item = data.logo[i];
